@@ -10,7 +10,6 @@ const Books = mongoose.model('Books')
 router.get('/get', (req, res, next) => {
   Users
   .find()
-  .populate('books')
   .exec((err, users) => {
     if (err) return res.json({ success: false, error: err })
     res.json({ success: true, users })
@@ -38,7 +37,6 @@ router.post('/register', (req, res, next) => {
   })
   Users
   .findOne({ email })
-  .populate('books')
   .exec((err, user) => {
     if(err) return res.json({ success: false, error: err })
     if(!user) {
