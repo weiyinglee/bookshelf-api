@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const db = require('./database/db')
 const booksRouter = require('./routes/books')
+const userRouter = require('./routes/users')
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use('/api/users', userRouter)
 app.use('/api/books', booksRouter)
 
 if (process.env.NODE_ENV === 'production') {
