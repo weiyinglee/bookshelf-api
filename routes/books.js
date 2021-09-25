@@ -30,11 +30,11 @@ router.post('/add/:userId', (req, res, next) => {
   const { userId } = req.params;
   const {
     title, authorName, finished, imageUrl,
-    link, note, owned,
+    link, note, owned, public,
   } = req.body
   const newBook = new Books({
     userId, title, authorName, finished, imageUrl,
-    link, note, owned,
+    link, note, owned, public,
   })
   newBook.save((err, book) => {
     if(err) return res.json({ success: false, error: err })

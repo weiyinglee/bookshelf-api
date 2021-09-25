@@ -32,9 +32,7 @@ router.put('/update/:email', (req, res, next) => {
 
 router.post('/register', (req, res, next) => {
   const { name, email, userId } = req.body
-  const newUser = new Users({
-    name, email, userId, private: false,
-  })
+  const newUser = new Users({ name, email, userId })
   Users
   .findOne({ email })
   .exec((err, user) => {

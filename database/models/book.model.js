@@ -11,6 +11,7 @@ const books = mongoose.model('Books', new Schema({
   note: String,
   userId: String,
   owned: Boolean,
+  public: Boolean,
 }))
 
 module.exports = {
